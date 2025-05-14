@@ -2,6 +2,8 @@ import {
   Body,
   Param,
   Controller,
+  UsePipes,
+  ValidationPipe,
   Get,
   Post,
   Delete,
@@ -26,6 +28,7 @@ export class TasksController {
   }
 
   @Post()
+  @UsePipes(ValidationPipe)
   createTask(@Body() createTaskDto: CreateTaskDto): Task {
     return this.tasksService.createTask(createTaskDto);
   }
@@ -36,6 +39,7 @@ export class TasksController {
   }
 
   @Patch('/:id/status')
+  @UsePipes(ValidationPipe)
   updateTaskStatus(
     @Param('id') id: string,
     @Body() updateTaskStatusDto: UpdateTaskStatusDto,
