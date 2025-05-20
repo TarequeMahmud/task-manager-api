@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { TaskStatus } from './tasks.model';
-import { v4 as uuid } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
